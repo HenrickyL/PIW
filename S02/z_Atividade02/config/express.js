@@ -11,7 +11,7 @@ import routesComentario from "../app/routes/comentario.js"
 
 export default ()=>{
     const app = express();
-    app.set("port",3001)
+    app.set("port",3000)
     app.use(bodyParser.json())
     app.use(express.static('./public'))
     

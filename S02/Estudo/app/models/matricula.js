@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-module.exports = ()=>{
+module.exports = function(){
     let schema = mongoose.Schema({
         aluno:{
             type: mongoose.Schema.ObjectId,
@@ -16,4 +16,4 @@ module.exports = ()=>{
     return mongoose.model("Matricula",schema);
 
 
-}
+}()

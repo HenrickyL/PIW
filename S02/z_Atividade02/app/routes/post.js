@@ -5,6 +5,8 @@ export default (app)=>{
     app.post('/api/posts',controller.inserePost);
     app.get('/api/posts/:id',controller.obterPost);
     app.delete('/api/posts/:id',controller.deletePost);
+    app.get('/api/posts/:id/comentarios',controller.obterComentariosPost);
+
 
 
 

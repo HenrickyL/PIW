@@ -1,7 +1,11 @@
 import schema from '../models/usuario.js'
 import view from '../views/usuario.js'
+import viewPost from '../views/post.js'
 
-const userSchema = schema()
+import schemaPost from '../models/post.js'
+
+const userSchema = schema
+const postSchema = schemaPost
 
 export default {
     listarUsuarios: async (req,res)=>{
@@ -45,7 +49,15 @@ export default {
         }
     },
     obterPostsUsuario: async (req,res)=>{
-        
+        let id = req.params.id
+        try{
+            let posts = await postSchema.find({id_usuario:id}).populate('usuarios').exec()
+            posts = posts.map(viewPost.render)
+            return res.status(200).json(posts)
+
+        }catch(e){
+            return res.status(400).json({menssagem:"Posts não encontardos",error:e})
+        }
     }
 
 

@@ -1,5 +1,7 @@
-const alunosSchema = require("../models/alunos")()
+const alunosSchema = require("../models/alunos")
 const view = require("../views/aluno")
+const disciplinasSchema = require("../models/matricula")
+
 
 
 module.exports.listaAlunos = async (req,res)=>{
@@ -44,6 +46,19 @@ module.exports.removeAluno = async(req,res)=>{
     try{
         let aluno = await alunosSchema.findByIdAndDelete(id);
         return res.status(200).json(view.render( aluno))
+    }catch(e){
+        return res.status(404).json({mensagem:e})
+
+    }
+
+}
+
+module.exports.obterDisciplina = async(req,res)=>{
+    let id = req.params.id
+    let disciplinas = await disciplinasSchema.find({aluno:id})
+    console.log(disciplinas)
+    try{
+        return res.status(200).json(disciplinas)
     }catch(e){
         return res.status(404).json({mensagem:e})
 

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-export default ()=>{
+function posts(){
     let schema = mongoose.Schema({
         texto:{
             type: String,
@@ -12,9 +12,12 @@ export default ()=>{
         },
         id_usuario:{
             type: mongoose.Schema.ObjectId,
-            ref: "Aluno",
+            ref: "Usuario",
             require: true
         }
     })
     return mongoose.model("Post",schema)
 }
+
+
+export default posts()

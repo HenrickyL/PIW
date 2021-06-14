@@ -5,4 +5,6 @@ module.exports = (app)=>{
     app.get('/alunos/:id',controller.obterAluno)
     app.post('/alunos',controller.inserirAluno)
     app.delete('/alunos/:id',controller.removeAluno)
+    app.get('/alunos/:id/disciplinas',controller.obterDisciplina)
+
 }

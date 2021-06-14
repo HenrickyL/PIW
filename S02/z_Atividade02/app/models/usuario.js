@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-export default ()=>{
+function usuarios(){
     let schema = mongoose.Schema({
         nome:{
             type: String,
@@ -18,3 +18,5 @@ export default ()=>{
     })
     return mongoose.model("Usuario",schema)
 }
+
+export default usuarios()

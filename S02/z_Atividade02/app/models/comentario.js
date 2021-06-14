@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-export default ()=>{
+function comentario(){
     let schema = mongoose.Schema({
         texto:{
             type: String,
@@ -8,12 +8,17 @@ export default ()=>{
         },
         id_post:{
             type:mongoose.Schema.ObjectId,
+            ref:"Post",
             require:true
         },
         id_usuario:{
-            type:mongoose.Schema.ObjectId,
+            type: mongoose.Schema.ObjectId,
+            ref:"Usuario",
             require:true
         }
     })
     return mongoose.model("Comentario",schema)
 }
+
+
+export default comentario()

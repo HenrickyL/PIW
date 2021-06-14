@@ -1,7 +1,12 @@
 import schema from '../models/post.js'
-import view from '../views/post.js'
+import schemaComent from '../models/comentario.js'
 
-const postsSchema = schema()
+import view from '../views/post.js'
+import viewComment from '../views/comentario.js'
+
+
+const postsSchema = schema
+const comentSchema =schemaComent
 
 
 export default {
@@ -41,6 +46,18 @@ export default {
             let post = await postsSchema.findByIdAndRemove(id)
             return res.status(200).json(view.render(post))        
 
+        }catch(e){
+            return res.status(404).json({mensagem:e})
+
+        }
+    },
+    obterComentariosPost: async(req,res)=>{
+        let id = req.params.id 
+        try{
+            let comentarios = await comentSchema.find({id_post:id})//.populate("posts").populate('usuarios').exec()
+            comentarios = comentarios.map(viewComment.render)
+            console.log("\n>>",comentarios)
+            return res.status(200).json(comentarios)        
         }catch(e){
             return res.status(404).json({mensagem:e})
 
