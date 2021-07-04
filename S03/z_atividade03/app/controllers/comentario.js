@@ -57,8 +57,8 @@ export default {
         try{
             //verificar se o comment pertence
             let commentList = await comentSchema.findOne({_id:idComent,id_usuario:idUsuarioLogado})
-            if(!commentList){
-                let comentario = await comentSchema.findByIdAndRemove(idComent).populate('usuarios').populate('posts');
+            if(commentList){
+                let comentario = await comentSchema.findByIdAndRemove(idComent)
                 comentario = view.render(comentario)
                 return res.status(200).json(comentario)
             }else{
