@@ -1,0 +1,11 @@
+.cabecalho{
+    display: flex;
+    align-items: center;
+    padding: 7px;
+    background-color: aquamarine;
+}
+
+.cabecalho .pagina-atual{
+    margin-left: auto; 
+}
+

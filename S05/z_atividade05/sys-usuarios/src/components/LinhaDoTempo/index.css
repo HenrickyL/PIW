@@ -1,0 +1,12 @@
+.conteudo{
+    display: grid;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    max-height: 75vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* padding-bottom: 100px; */
+}

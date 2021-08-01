@@ -1,0 +1,29 @@
+.home{
+    width: 700px;
+    height: 100vh;
+    border-radius: 8px;
+    background-color: #f5f5f5b3;
+    /* padding: 10px; */
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.cabecalho{
+    display: flex;
+    background-color: var(--color-dark1);
+    border-radius: 8px 8px 0 0;
+    align-items: center;
+    justify-content: space-between;
+}
+.cabecalho img{
+    min-height: 65px;
+    transition: 0.5s ease-in;
+}
+.cabecalho img.logo{
+    height: 4rem;
+    
+}
+.cabecalho img.fruit{
+    width: 5rem;
+}

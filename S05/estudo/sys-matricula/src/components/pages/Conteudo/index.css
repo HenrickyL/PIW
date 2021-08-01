@@ -1,0 +1,37 @@
+.conteudo-galeria{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    width: 200px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    box-shadow: 2px 3px 5px black;
+    transition: 0.3s;
+}
+
+.card:hover{
+    filter: brightness(90%);
+    box-shadow: 2px 2px 3px black;
+
+}
+
+.card .card-title{
+    font-size: 30px;
+}
+
+
+.card .card-code{
+
+}
+
+.card +.indisponivel{
+    background-color: red;
+}
