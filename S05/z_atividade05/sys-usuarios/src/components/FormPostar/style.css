@@ -1,10 +1,14 @@
 .formPostar{
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
 }
 
 .formPostar textarea{
-    width: 40rem;
+    width: 90%;
+    max-width: 90%;
     padding: 10px;
     border-radius: 8px 8px 0 0;
     min-height:10vh ;
@@ -14,12 +18,13 @@
     resize: none;
 
 }
-.formPostar textarea:focus{
+form textarea:focus{
     border: 1px solid black;
     background-color: white;
 
 }
-.formPostar button[type=submit]{
+.formPostar button{
+    width: 93%;
     border-radius: 0 0  8px 8px;
     border: 1px solid transparent;
     transition: 0.3s;
@@ -30,13 +35,13 @@
 
 }
 
-.formPostar button[type=submit]:hover{
+form button[type=submit]:hover{
     border: 1px solid black;
     filter: brightness(95%);
 
 
 }
-.formPostar button[type=submit]:active{
+form button[type=submit]:active{
     box-shadow: 2px 2px 3px black;
     color: white;
 }
@@ -47,27 +52,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* margin-bottom: ; */
 }
 .inp-mensage textarea{
     padding: 5px;
     min-height: 1vw;
-    width: 40vw;
-    border-radius: 8px;
+    width: 24rem;
+    border-radius: 8px 8px 0 0;
     resize: none;
     transition: 0.3s;
+    border: 1px solid transparent;
+    transition: 0.4s;
 
-    margin-bottom: 10px;
+
     /* box-shadow: 2px 3px 5px black ; */
 }
+
 .inp-mensage textarea:focus{
-    box-shadow: inset 0 0 10px rgba(42, 42, 42, 1);
+    box-shadow: inset 0 0 10px rgb(150, 197, 219);
 }
 .inp-mensage button{
-    width: 40vw;
+    width: 24.7rem;
     padding: 2px 5px;
     border-radius: 0 0 8px 8px;
+    border: 1px solid transparent;
+    transition: 0.4s;
+    font-weight: bold;
 
 
-    background-color: red ;
+    background-color: var(--color-primary-light) ;
 }

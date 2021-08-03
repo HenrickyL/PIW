@@ -20,7 +20,7 @@ export const FormPostar = (props)=>{
     
     return(
         
-        <form className='conteudo formPostar fadeIn' onSubmit={(e)=>{e.preventDefault()}}>
+        <form className='formPostar fadeIn' onSubmit={(e)=>{e.preventDefault()}}>
             <textarea  onChange={handdleChange} autoFocus required   placeholder='Escreva seu Post aqui...' />
             <button onClick={haddleSubmit} type="submit">Postar</button>
         </form>

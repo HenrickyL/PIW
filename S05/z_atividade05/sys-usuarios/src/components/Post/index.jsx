@@ -1,17 +1,34 @@
 import './index.css'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import classNames from 'classnames' 
 import { infoComments } from '../../utils/data'
 import { Comment } from '../Comment'
+
+
 export function Post(props){
     const [likes,setLikes]=useState(props.qtdLikes)
     const [viewComment,setView]=useState(false)
-    const [deactive,setDeactive]=useState(null)
+    const [deactive,setDeactive]=useState(true)
     const [isLike,setISLike]=useState(props.active)
+    const [currentComments,setCurrComment] = useState(infoComments.filter(x=> props.id ==x.idPost))
+    const [currText, setCurrText] = useState('')
+    const handdleChange =(e)=>{
+        setCurrText(e.target.value)
+        
+    }
+    const haddleSubmit = (e)=>{
+        infoComments.push({
+            id:infoComments.length+1,
+            idPost:props.id,
+            nomeUsuario:"Henricky",
+            texto: currText,
+            qtdLikes:0,
+            active:false
     
-
-
-    
+        })
+        let coments=infoComments.filter(x=> props.id ==x.idPost)
+        setCurrComment(coments)
+    }
     const handdleClick = (e)=>{
         let aux = 1;
         if(isLike){
@@ -24,11 +41,7 @@ export function Post(props){
 
     }
     const toggleComments = (e)=>{
-        if(deactive==null){
-            setDeactive(false)
-        }else{
-            setDeactive(!deactive)
-        }
+        setDeactive(!deactive)
         setView(!viewComment)
     }
     return (
@@ -40,18 +53,24 @@ export function Post(props){
                 <button className={classNames('btLike',{active:isLike})} onClick={handdleClick}>Curtir</button>
                 <img className={classNames({active:viewComment})} src="/seta.svg" alt="view comments" onClick={toggleComments} />
             </div>
-           <div className='comentarios'>
+           <div className='comentarios-box'>
+               <div className='comentarios'>
                {
-                    infoComments.map((c,i)=>{
+                    currentComments
+                        .map((c,i)=>{
                         console.log(c)
                                 return (<Comment  key={i} {...c} />)
                         })
                }
-           </div>
-            <form className='inp-mensage' onSubmit={(e)=>{e.preventDefault()}}>
+               </div>
+               
+               <form className='inp-mensage' onSubmit={(e)=>{e.preventDefault()}}>
 
-                <textarea placeholder='Digite um Comentário ...'/>
-            </form>
+                    <textarea onChange={handdleChange} placeholder='Digite um Comentário ...' required/>
+                    <button onClick={haddleSubmit} type="submit">Comentar</button>
+                </form>
+           </div>
+            
         </div>
         
     )

@@ -23,7 +23,7 @@ let infoPosts = [
 
     },
     {
-        id:3,
+        id:4,
         nomeUsuario:"Pedrosa",
         texto:"Dá refresh na página!!! Olha o que acontece.",
         qtdLikes:3,
@@ -32,7 +32,7 @@ let infoPosts = [
     },
     
     {
-        id:4,
+        id:5,
         nomeUsuario:"Mateus",
         texto:"Terminou o tabalho? Bora jogar",
         qtdLikes:8,
@@ -40,7 +40,7 @@ let infoPosts = [
 
     },
     {
-        id:5,
+        id:6,
         nomeUsuario:"Victor",
         texto:"Terminou ai velho?",
         qtdLikes:4,
