@@ -1,0 +1,110 @@
+
+:root{
+  --color-primary: #75CFB8;
+  --color-primary-light: #BBDFC8;
+  --color-secundary: #FFC478;
+  --color-background: #F0E5D8;
+  --color-dark1: #222831;
+  --color-dark2: #393E46;
+  --color-dark2: #5B5B5B;
+  --color-gray1: #DDDDDD;
+  --color-gray1: #C0C0C0;
+  --color-gray1: #A6B6A9;
+
+
+
+}
+
+.hide{
+  display: none;
+}
+*{
+  outline: none;
+  margin: 0;
+  border:0;
+  font-family: sans-serif;
+  /* seleção */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+  /* Dragable */
+  -webkit-user-drag: none;
+}
+
+
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(4, 4, 44);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+  }
+  @keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+  } 
+
+
+  .select {
+    -webkit-touch-callout: initial; /* iOS Safari */
+      -webkit-user-select: initial; /* Safari */
+       -khtml-user-select: initial; /* Konqueror HTML */
+         -moz-user-select: initial; /* Old versions of Firefox */
+          -ms-user-select: initial; /* Internet Explorer/Edge */
+              user-select: initial; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+/* scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; 
+  
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25); 
+	border-radius:4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+

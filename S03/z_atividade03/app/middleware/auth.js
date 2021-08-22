@@ -5,6 +5,7 @@ import bcrypt from 'bcrypt'
 export default {
     logar: async (req,res,next)=>{
         let currentEmail = req.body.email
+        console.log(req.body)
         try{
             let aluno = await schemaAluno.findOne({email:currentEmail})
             if(aluno){

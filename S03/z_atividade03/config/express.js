@@ -7,13 +7,15 @@ import bodyParser from 'body-parser'
 import routesUsuario from "../app/routes/usuario.js"
 import routesPost from "../app/routes/post.js"
 import routesComentario from "../app/routes/comentario.js"
-
+import cors from 'cors'
 
 export default ()=>{
     const app = express();
-    app.set("port",3000)
-    app.use(bodyParser.json())
+    app.set("port",3002)
+    app.use(express.json())
     app.use(express.static('./public'))
+    app.use(express.urlencoded());
+    app.use(cors())
     
     //endpoints
     routesUsuario(app)
