@@ -1,16 +1,24 @@
-import {useForm, useFormContext} from 'react-hook-form'
+import {useForm, useCo} from 'react-hook-form'
 import authentication from '../../api/auth.js'
+import {useContext} from 'react'
 import 'dotenv/config'
 import { AuthContext } from '../../App.js'
+import history from '../../history.js'
 
 export const FormLogin = ()=>{
     const {register, handleSubmit} = useForm();
-    const url = "http://localhost:3002/api/usuarios/login"//process.env.REACT_APP_URL + process.env.REACT_APP_URL_USER
-    const auth = useFormContext(AuthContext);
-    const submeter = async (user)=>{
-        const res = await authentication.login(url,user)
-        console.log(res)
-        
+    const auth = useContext(AuthContext);
+    const submeter =  (user)=>{
+        authentication.login(user)
+            .then(res=>{
+                auth.setAuth(res.data)
+                history.push('/')
+            })
+            .catch(e=>{
+                console.error(e)
+                history.push('/login')
+            })
+       
             
             
        

@@ -6,7 +6,8 @@ export default {
             id: post._id,
             texto: post.texto,
             likes: post.likes,
-            usuario: viewUser.render(post.id_usuario)
+            usuario: viewUser.render(post.id_usuario),
+            username: post.username
         }
     }
 }

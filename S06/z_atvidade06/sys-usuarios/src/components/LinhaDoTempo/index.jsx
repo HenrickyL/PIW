@@ -1,16 +1,15 @@
-import { infoPosts } from "../../utils/data"
 import { Post } from "../Post"
 import './index.css'
 
 
-export function LinhaDoTempo(){
+export function LinhaDoTempo(props){
     
 
     return(
         <div className='conteudo fadeIn'>
             {
-               infoPosts.map((p,i)=>{
-                    return (<Post className='fadeIn' key={i} {...p} />)
+               (props.posts).map((currentPost,i)=>{
+                    return (<Post className='fadeIn' key={i} {...currentPost} />)
                }) 
             }
         </div>

@@ -1,5 +1,6 @@
 import schema from '../models/post.js'
 import schemaComent from '../models/comentario.js'
+import schemaUser from '../models/usuario.js'
 import jwt from 'jsonwebtoken'
 import view from '../views/post.js'
 import viewComment from '../views/comentario.js'
@@ -12,7 +13,7 @@ const comentSchema =schemaComent
 export default {
     listarPosts: async (req,res)=>{
         try{
-            let posts = await postsSchema.find().populate('usuario');
+            let posts = await postsSchema.find().populate('Usuario');
             posts = posts.map(p=>view.render(p))
             return res.status(200).json(posts)
         }catch(e){
@@ -23,16 +24,24 @@ export default {
         let token = req.headers.token
         let payload = jwt.decode(token)
         let idUsuarioLogado = payload.id
-
-
-        let corpo = {
-            id_usuario: idUsuarioLogado,
-            likes: req.body.likes,
-            texto: req.body.texto
-        }
-        try{
-            let post = await postsSchema.create(corpo)
-            return res.status(201).json(view.render(post))        
+        let currentUser = "username"
+	try{
+	//buscar o nome
+	let user = await schemaUser.findById(idUsuarioLogado)
+	if(user)
+		currentUser = user.nome
+		
+	let corpo = {
+	    id_usuario: idUsuarioLogado,
+	    likes: req.body.likes,
+	    texto: req.body.texto,
+	    username: currentUser
+	}
+	
+	let post = await postsSchema.create(corpo)
+	return res.status(201).json(view.render(post))        
+        
+        ///////////////
         }catch(e){
             return res.status(400).json({mensagem:e})
             

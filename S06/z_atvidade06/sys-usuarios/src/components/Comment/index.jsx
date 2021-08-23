@@ -2,7 +2,7 @@ import classNames from "classnames"
 import { useState } from "react"
 
 export const Comment = (props)=>{
-    const [likes,setLikes]=useState(props.qtdLikes)
+    const [likes,setLikes]=useState(props.likes)
     const [deactive,setDeactive]=useState(null)
     const [isLike,setISLike]=useState(props.active)
 
@@ -20,7 +20,7 @@ export const Comment = (props)=>{
     return (
 
         <div className='comment'>
-            <h4 className='comment-user'>{props.nomeUsuario}</h4>
+            <h4 className='comment-user'>{props.username}</h4>
                 <span className='comment-text'>{props.texto}</span>
                 <span className='comment-like'>{likes} likes</span>
                 <button className={classNames('btLike',{active:isLike})} onClick={handdleClick}>Curtir</button>

@@ -2,7 +2,7 @@
     //carregar as rotas
 
 import express from "express"
-import bodyParser from 'body-parser'
+
 //routes
 import routesUsuario from "../app/routes/usuario.js"
 import routesPost from "../app/routes/post.js"
@@ -12,10 +12,10 @@ import cors from 'cors'
 export default ()=>{
     const app = express();
     app.set("port",3002)
-    app.use(express.json())
     app.use(express.static('./public'))
-    app.use(express.urlencoded());
     app.use(cors())
+    app.use(express.urlencoded({ extended : true }))
+    app.use(express.json())
     
     //endpoints
     routesUsuario(app)

@@ -12,7 +12,7 @@ export default {
                 if(bcrypt.compareSync(req.body.senha,aluno.senha)){
                     let payload = {id:aluno._id}
                     let token = jwt.sign(payload,'senha_secreta')
-                    return res.status(200).json({token:token,payload})
+                    return res.status(200).json({token:token,nome:aluno.nome,id:aluno._id})
                 }else{
                     return res.status(401).send('credenciais erradas!')
                 }

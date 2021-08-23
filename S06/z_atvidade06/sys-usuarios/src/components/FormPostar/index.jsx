@@ -1,28 +1,35 @@
 import './style.css'
 import history from '../../history.js'
 import {infoPosts} from'../../utils/data.js'
-import {useState} from 'react'
+import {useContext, useState} from 'react'
+import postsAPI from '../../api/postsAPI'
+import { useForm } from 'react-hook-form'
+import { AuthContext } from '../../App'
 export const FormPostar = (props)=>{
+    const {auth} = useContext(AuthContext)
+    const {register, handleSubmit} = useForm();
     const [conteudo, setConteudo] =useState('')
-    const haddleSubmit =  (e)=>{
-        history.push('/')
-
-        infoPosts.push({
-            id:infoPosts.length+1,
-            nomeUsuario:"Henricky",
+    const submeter =  (data)=>{
+        postsAPI.setPost(auth,{
             texto: conteudo,
-            qtdLikes:0
+            likes:0
+        }).then(res=>{
+            history.push('/')
+        }).catch(e=>{
+            console.error(e)
         })
     }
-    const handdleChange = (e)=>{
-        setConteudo(e.target.value)
+    const handdleChange = ({target})=>{
+        
+        setConteudo(target.value)
     }
     
     return(
         
-        <form className='formPostar fadeIn' onSubmit={(e)=>{e.preventDefault()}}>
-            <textarea  onChange={handdleChange} autoFocus required   placeholder='Escreva seu Post aqui...' />
-            <button onClick={haddleSubmit} type="submit">Postar</button>
+        <form className='formPostar fadeIn'  onSubmit={handleSubmit(submeter)} >
+            {/* <textarea  onChange={handdleChange}  name='texto' id='texto' autoFocus required    placeholder='Escreva seu Post aqui...' {...register("texto")}  /> */}
+            <input className='inpt-text' type="text" onChange={handdleChange} />
+            <button>Postar</button>
         </form>
     )
 }

@@ -1,7 +1,8 @@
 import axios from "axios"
+const url = "http://localhost:3002/api/usuarios"//process.env.REACT_APP_URL + process.env.REACT_APP_URL_USER
 
 export default {
-    cadastrar: async(url,data)=>{
+    cadastrar: async(data)=>{
         try {
             const res = await axios.post(url,data)
             return res
@@ -12,9 +13,10 @@ export default {
         }
 
     },
-    login: async (url,data)=>{
+    login: async (data)=>{
         try {
-            const res = await axios.post(url,data)
+            
+            const res = await axios.post(url+'/login',data)
             return res
             
         } catch (e) {

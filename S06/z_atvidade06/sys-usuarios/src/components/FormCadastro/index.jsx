@@ -1,14 +1,12 @@
 import './index.css'
 import {useForm} from 'react-hook-form'
-import 'dotenv/config'
 import auth from '../../api/auth.js'
 import history from '../../history';
 export const FormCadastro = ()=>{
     const {register, handleSubmit} = useForm();
-    const url = "http://localhost:3002/api/usuarios"//process.env.REACT_APP_URL + process.env.REACT_APP_URL_USER
     
     const submeter = async (user)=>{
-        const res = await auth.cadastrar(url, user)
+        const res = await auth.cadastrar(user)
         if(res)
             history.push('/login')
         else

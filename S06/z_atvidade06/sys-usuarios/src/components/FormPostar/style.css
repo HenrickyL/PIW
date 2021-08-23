@@ -6,7 +6,7 @@
     padding: 1rem;
 }
 
-.formPostar textarea{
+.formPostar .inpt-text{
     width: 90%;
     max-width: 90%;
     padding: 10px;
@@ -16,9 +16,10 @@
     transition: 0.5s;
     background-color: whitesmoke;
     resize: none;
+    text-align: center;
 
 }
-form textarea:focus{
+form .inpt-text:focus{
     border: 1px solid black;
     background-color: white;
 
@@ -54,7 +55,7 @@ form button[type=submit]:active{
     align-items: center;
     /* margin-bottom: ; */
 }
-.inp-mensage textarea{
+.inp-mensage .inpt-text{
     padding: 5px;
     min-height: 1vw;
     width: 24rem;
@@ -68,7 +69,7 @@ form button[type=submit]:active{
     /* box-shadow: 2px 3px 5px black ; */
 }
 
-.inp-mensage textarea:focus{
+.inp-mensage .inpt-text:focus{
     box-shadow: inset 0 0 10px rgb(150, 197, 219);
 }
 .inp-mensage button{
